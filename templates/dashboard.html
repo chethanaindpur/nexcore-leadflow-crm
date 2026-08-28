@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NexCore LeadFlow</title>
+
+    <style>
+        .dashboard-card{
+    background:linear-gradient(
+        135deg,
+        rgba(37,99,235,0.90),
+        rgba(59,130,246,0.80)
+    );
+
+    color:white;
+
+    padding:30px;
+
+    width:220px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+
+    transition:all .35s ease;
+
+    cursor:pointer;
+}
+
+.dashboard-card:hover{
+    transform:translateY(-7px) scale(1.02);
+
+    border:1px solid rgba(180,220,255,0.85);
+
+    box-shadow:
+        0 0 10px rgba(255,255,255,0.18),
+        0 0 20px rgba(90,160,255,0.30),
+        0 14px 28px rgba(0,0,0,0.35);
+}
+
+.dashboard-card h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.dashboard-card p{
+    font-size:18px;
+    margin:0;
+}
+
+.action-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    align-items:center;
+}
+
+.action-buttons a{
+    width:90px;
+    text-align:center;
+    font-size:12px;
+}
+
+@media screen and (max-width:768px){
+
+    table{
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
+    }
+
+    .action-buttons{
+        flex-direction:column;
+    }
+
+    .action-buttons a{
+        width:80px;
+        font-size:11px;
+        padding:5px;
+    }
+
+}
+.table-container{
+    width:100%;
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    min-width:1100px;
+    border-collapse:collapse;
+}
+
+th, td{
+    padding:12px;
+    text-align:center;
+    white-space:nowrap;
+}
+
+@media screen and (max-width:768px){
+
+    .table-container{
+        overflow-x:auto;
+        -webkit-overflow-scrolling:touch;
+    }
+
+    table{
+        min-width:1200px;
+    }
+
+}
+/* PHASE B - Premium Dashboard Polish */
+
+{
+    animation:fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.metric-card{
+    color:white;
+    padding:25px;
+    border-radius:18px;
+    width:220px;
+    text-align:center;
+    cursor:pointer;
+    transition:all .35s ease;
+    border:1px solid rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+.metric-card:hover{
+
+    transform:translateY(-8px) scale(1.02);
+
+    border:1px solid rgba(180,220,255,0.9);
+
+    box-shadow:
+        0 0 8px rgba(255,255,255,0.25),
+        0 0 18px rgba(100,170,255,0.35),
+        0 12px 30px rgba(0,0,0,0.40);
+
+}
+
+.green-card{
+    background:linear-gradient(135deg,#16a34a,#22c55e);
+}
+
+.blue-card{
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+}
+
+.purple-card{
+    background:linear-gradient(135deg,#9333ea,#7c3aed);
+}
+
+.red-card{
+    background:linear-gradient(135deg,#dc2626,#ef4444);
+}
+
+table{
+    border-collapse:collapse;
+    background:white;
+    border-radius:14px;
+    overflow:hidden;
+}
+
+th{
+    background:#0f172a !important;
+    color:white !important;
+    padding:14px;
+}
+
+td{
+    padding:14px;
+}
+
+a, button{
+    transition:0.3s ease;
+}
+
+a:hover, button:hover{
+    transform:scale(1.04);
+    opacity:0.95;
+}
+.side-link{
+    display:block;
+    color:#e5e7eb;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:600;
+    padding:13px 14px;
+    border-radius:10px;
+    margin-bottom:14px;
+    transition:0.3s ease;
+}
+
+.side-link:hover{
+    background:rgba(37,99,235,0.25);
+    color:white;
+    padding-left:22px;
+}
+#loading-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(2,6,23,0.88);
+    z-index:10000;
+    align-items:center;
+    justify-content:center;
+    backdrop-filter:blur(5px);
+}
+
+.loading-box{
+    text-align:center;
+    color:white;
+}
+
+.loading-logo{
+    width:64px;
+    height:64px;
+    margin:0 auto 15px;
+    border-radius:16px;
+    background:#020617;
+    color:#facc15;
+    border:2px solid #facc15;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:36px;
+    font-weight:bold;
+    box-shadow:0 0 20px rgba(250,204,21,0.3);
+}
+
+.spinner{
+    width:42px;
+    height:42px;
+    margin:20px auto;
+    border:4px solid rgba(255,255,255,0.2);
+    border-top-color:#3b82f6;
+    border-radius:50%;
+    animation:spin 0.8s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body style="
+margin:0;
+font-family:Arial;
+background:#f1f5f9;
+">
+<div id="loading-overlay">
+    <div class="loading-box">
+        <div class="loading-logo">N</div>
+        <h2>NexCore LeadFlow CRM</h2>
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+</div>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div style="
+            position:fixed;
+            top:20px;
+            right:20px;
+            z-index:9999;
+            max-width:360px;
+        ">
+            {% for category, message in messages %}
+                <div style="
+                    background:#16a34a;
+                    color:white;
+                    padding:14px 20px;
+                    margin-bottom:10px;
+                    border-radius:10px;
+                    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+                    font-weight:bold;
+                ">
+                    ✅ {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
+<button id="menu-btn"
+onclick="toggleSidebar()"
+style="
+position:fixed;
+top:15px;
+left:15px;
+z-index:1000;
+background:#2563eb;
+color:white;
+border:none;
+padding:10px 15px;
+border-radius:8px;
+font-size:20px;
+display:none;
+">
+☰
+</button>
+
+<div style="display:flex;">
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar" id="sidebar" style="
+width:220px;
+background:linear-gradient(180deg,#020617,#0f172a);
+min-height:100vh;
+padding:28px 22px;
+color:white;
+position:fixed;
+left:0;
+top:0;
+box-sizing:border-box;
+box-shadow:4px 0 25px rgba(0,0,0,0.35);
+">
+
+<h2 style="
+font-size:26px;
+margin-bottom:45px;
+letter-spacing:0.5px;
+">
+NexCore
+</h2>
+
+<a href="/" class="side-link">🏠 Dashboard</a>
+<a href="/leads" class="side-link">📋 Leads</a>
+<a href="/analytics" class="side-link">📊 Analytics</a>
+<a href="/ai-assistant" class="side-link">🤖 AI Assistant</a>
+
+<a href="/logout" style="
+display:block;
+background:#ef4444;
+color:white;
+text-decoration:none;
+padding:12px 18px;
+border-radius:10px;
+font-weight:bold;
+margin-top:45px;
+width:max-content;
+">
+Logout
+</a>
+
+<p style="
+color:#94a3b8;
+font-size:12px;
+line-height:1.5;
+margin-top:22px;
+word-break:break-word;
+">
+Support:<br>
+nexcoreleadflow@gmail.com
+</p>
+
+</div>
+
+    <!-- MAIN CONTENT -->
+
+    <div style="
+    margin-left:220px;
+    width:100%;
+    padding:30px;
+    ">
+
+        <!-- HERO SECTION -->
+
+        <div style="
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+color:white;
+padding:40px;
+border-radius:20px;
+">
+
+    <h1 style="margin:0 0 12px;">
+        🚀 NexCore LeadFlow CRM
+    </h1>
+
+    <h2 style="
+    margin:0;
+    font-size:24px;
+    line-height:1.5;
+    ">
+        Manage Leads • Automate Follow-Ups • Grow Revenue
+    </h2>
+
+    <p style="
+    margin-top:14px;
+    font-size:17px;
+    ">
+        One dashboard for your entire sales pipeline.
+    </p>
+
+    <div style="
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:18px;
+    ">
+
+        <span style="
+        background:rgba(255,255,255,0.18);
+        padding:8px 14px;
+        border-radius:20px;
+        font-weight:bold;
+        ">
+            ✓ AI Powered
+        </span>
+
+        <span style="
+        background:rgba(255,255,255,0.18);
+        padding:8px 14px;
+        border-radius:20px;
+        font-weight:bold;
+        ">
+            ✓ WhatsApp Automation
+        </span>
+
+        <span style="
+        background:rgba(255,255,255,0.18);
+        padding:8px 14px;
+        border-radius:20px;
+        font-weight:bold;
+        ">
+            ✓ Email Automation
+        </span>
+
+    </div>
+
+</div>
+<div style="
+margin:22px 0 16px;
+">
+
+    <h2 style="
+    margin:0;
+    color:#111827;
+    ">
+        👋 Welcome back, Admin
+    </h2>
+
+    <p style="
+    margin:6px 0 0;
+    color:#64748b;
+    font-size:16px;
+    ">
+        Here’s today’s lead and sales summary.
+    </p>
+
+</div>
+
+        <!-- ANALYTICS CARDS -->
+        <div style="
+background:#dc2626;
+color:white;
+padding:20px;
+border-radius:12px;
+margin-top:20px;
+margin-bottom:20px;
+font-size:20px;
+font-weight:bold;
+box-shadow:0px 5px 15px rgba(0,0,0,0.2);
+">
+
+⚠️ {{ today_followups }} Follow-Up(s) Due Today
+
+</div>
+        <div style="
+        display:flex;
+        gap:20px;
+        flex-wrap:wrap;
+        margin-bottom:30px;
+        ">
+
+            <div class="dashboard-card">
+
+                <div style="font-size:28px;">👥</div>
+                <h1>{{ total_leads }}</h1>
+                <p>Total Leads</p>
+
+            </div>
+
+            <div class="dashboard-card">
+                <div style="font-size:28px;">⏳</div>
+                <h1>{{ pending_count }}</h1>
+                <p>Pending</p>
+
+            </div>
+
+            <div class="dashboard-card">
+                <div style="font-size:28px;">📞</div>
+                <h1>{{ contacted_count }}</h1>
+                <p>Contacted</p>
+
+            </div>
+
+            <div class="dashboard-card">
+                <div style="font-size:28px;">✅</div>
+                <h1>{{ closed_count }}</h1>
+                <p>Closed</p>
+
+            </div>
+
+        </div>
+
+        <!-- BUTTONS -->
+
+        <div style="margin-bottom:25px;">
+
+            <a href="/add-lead"
+            style="
+            background:#2563eb;
+            color:white;
+            padding:12px 20px;
+            text-decoration:none;
+            border-radius:5px;
+            margin-right:10px;
+            ">
+            Add Lead
+            </a>
+
+            <a href="/export-csv"
+            style="
+            background:green;
+            color:white;
+            padding:12px 20px;
+            text-decoration:none;
+            border-radius:5px;
+            ">
+            Export Leads
+            </a>
+
+        </div>
+
+        <!-- AI RECOMMENDATION -->
+
+        <div style="
+        background:#111827;
+        color:white;
+        padding:20px;
+        border-radius:12px;
+        margin-bottom:30px;
+        ">
+        <div style="
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+margin-top:20px;
+margin-bottom:20px;
+">
+
+<!-- Potential Revenue -->
+<div class="metric-card green-card">
+
+    <h3>💰 Potential Revenue</h3>
+    <h1 id="potentialRevenue">0</h1>
+
+</div>
+
+    <!-- Closed Revenue -->
+<div class="metric-card blue-card">
+
+    <h3>📈 Closed Revenue</h3>
+    <h1 id="closedRevenue">0</h1>
+
+</div>
+
+    <!-- Conversion Rate -->
+<div class="metric-card purple-card">
+
+    <h3>🎯 Conversion Rate</h3>
+    <h1 id="conversionRate">0</h1>
+
+</div>
+
+    <!-- Hot Leads -->
+<div class="metric-card red-card">
+
+    <h3>🔥 Hot Leads</h3>
+    <h1 id="hotLeads">0</h1>
+
+</div>
+
+</div>
+
+            <h2>AI Recommendation</h2>
+
+            <p style="
+color:white;
+font-size:18px;
+line-height:1.7;
+">
+You should follow up with pending leads today to improve conversion chances.
+</p>
+
+        </div>
+
+        <!-- LEAD ANALYTICS -->
+
+        <div style="
+background:#111827;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.18);
+margin-top:30px;
+width:max-content;
+">
+
+            <h2 style="color:white;">Lead Analytics 📊</h2>
+
+            <img src="{{ url_for('static', filename='chart.png') }}"
+width="100%">
+<br><br>
+
+<img
+src="{{ url_for('static', filename='bar_chart.png') }}"
+style="
+width:100%;
+border-radius:10px;
+"
+>
+
+        </div>
+
+        <!-- SAVED LEADS -->
+
+        <h2>Saved Leads</h2>
+
+<form method="GET" action="/">
+
+<input
+type="text"
+name="search"
+placeholder="Search Customer..."
+value="{{ request.args.get('search', '') }}"
+style="
+padding:10px;
+border-radius:8px;
+border:1px solid #ccc;
+margin-bottom:15px;
+"
+>
+
+<select
+name="status"
+style="
+padding:10px;
+border-radius:8px;
+border:1px solid #ccc;
+margin-left:200px;
+margin-bottom:15px;
+">
+
+<option value="">All Status</option>
+<option value="Pending">Pending</option>
+<option value="Contacted">Contacted</option>
+<option value="Closed">Closed</option>
+
+</select>
+
+<button
+type="submit"
+style="
+padding:10px 15px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:8px;
+margin-left:10px;
+">
+Filter
+</button>
+
+</form>
+<div class="table-container">
+<table
+border="1"
+cellpadding="12"
+cellspacing="0"
+width="100%"
+style="
+background:white;
+border-collapse:collapse;
+font-size:14px;
+">
+
+<tr style="background:#e2e8f0;">
+
+<th>ID</th>
+<th>Customer Name</th>
+<th>Phone Number</th>
+<th>Business Type</th>
+<th>Status</th>
+<th>Follow-Up</th>
+<th>AI Score</th>
+<th>AI Reply</th>
+<th>Action</th>
+<th>WhatsApp</th>
+
+</tr>
+
+{% for lead in leads %}
+
+<tr>
+
+<td>{{ lead[0] }}</td>
+
+<td>{{ lead[1] }}</td>
+
+<td>{{ lead[2] }}</td>
+
+<td>{{ lead[3] }}</td>
+
+<td>
+
+{% if lead[4] == 'Pending' %}
+<span style="
+background:#f59e0b;
+padding:8px 14px;
+border-radius:20px;
+color:white;
+font-weight:bold;
+">
+ Warm Lead
+</span>
+
+{% elif lead[4] == 'Contacted' %}
+<span style="
+background:#3b82f6;
+padding:8px 14px;
+border-radius:20px;
+color:white;
+font-weight:bold;
+">
+ Active Lead
+</span>
+
+{% elif lead[4] == 'Closed' %}
+<span style="
+background:#10b981;
+padding:8px 14px;
+border-radius:20px;
+color:white;
+font-weight:bold;
+">
+ Hot Converted
+</span>
+
+{% endif %}
+
+</td>
+
+<td>
+
+{% if lead[4] == "Closed" %}
+
+<span style="
+background:green;
+color:white;
+padding:6px 10px;
+border-radius:8px;
+font-weight:bold;
+">
+✅ Completed
+</span>
+
+{% elif lead[5] < today %}
+
+<span style="
+background:red;
+color:white;
+padding:6px 10px;
+border-radius:8px;
+font-weight:bold;
+">
+⚠ Overdue
+</span>
+
+{% elif lead[5] == today %}
+
+<span style="
+background:orange;
+color:white;
+padding:6px 10px;
+border-radius:8px;
+font-weight:bold;
+">
+⚠ Due Today
+</span>
+
+{% else %}
+
+<span style="
+background:green;
+color:white;
+padding:6px 10px;
+border-radius:8px;
+font-weight:bold;
+">
+{{ lead[5] }}
+</span>
+
+{% endif %}
+
+</td>
+
+<td>
+
+{% if lead[4] == 'Pending' %}
+
+<span style="
+background:red;
+color:white;
+padding:6px 10px;
+border-radius:8px;
+font-weight:bold;
+">
+High 🔥
+</span>
+
+{% elif lead[4] == 'Contacted' %}
+
+<span style="
+background:orange;
+color:white;
+padding:6px 10px;
+border-radius:8px;
+font-weight:bold;
+">
+Medium
+</span>
+
+{% else %}
+
+<span style="
+background:green;
+color:white;
+padding:6px 10px;
+border-radius:8px;
+font-weight:bold;
+">
+Completed
+</span>
+
+{% endif %}
+
+</td>
+
+<td>
+
+<a href="/generate-ai/{{ lead[1] }}/{{ lead[3] }}/{{ lead[4] }}"
+style="
+background:#7c3aed;
+color:white;
+padding:8px 12px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+">
+Generate AI Reply
+</a>
+
+</td>
+
+<td>
+
+<div class="action-buttons">
+
+<a href="/edit-lead/{{ lead[0] }}"
+style="
+background:green;
+color:white;
+padding:6px 10px;
+border-radius:6px;
+text-decoration:none;
+font-weight:bold;
+">
+Edit
+</a>
+
+<a href="/delete/{{ lead[0] }}"
+style="
+background:red;
+color:white;
+padding:6px 10px;
+border-radius:6px;
+text-decoration:none;
+font-weight:bold;
+">
+Delete
+</a>
+
+</div>
+
+</td>
+
+<td>
+
+<a href="/send-email/{{ lead[0] }}"
+style="
+background:#2563eb;
+color:white;
+padding:8px 12px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+margin-right:8px;
+">
+Email
+</a>
+
+<a href="/whatsapp/{{ lead[0] }}"
+style="
+background:#25D366;
+color:white;
+padding:8px 12px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+">
+WhatsApp
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+</div>
+    </div>
+
+</div>
+<script>
+
+const searchInput = document.getElementById("searchInput");
+const statusFilter = document.getElementById("statusFilter");
+
+searchInput.addEventListener("keyup", filterTable);
+statusFilter.addEventListener("change", filterTable);
+
+function filterTable() {
+
+    const searchValue = searchInput.value.toLowerCase();
+    const statusValue = statusFilter.value;
+
+    const rows = document.querySelectorAll("table tbody tr");
+
+    rows.forEach(row => {
+
+        const customer =
+            row.children[1].textContent.toLowerCase();
+
+        const status =
+            row.children[4].textContent;
+
+        const matchesSearch =
+            customer.includes(searchValue);
+
+        const matchesStatus =
+            statusValue === "All" ||
+            status.includes(statusValue);
+
+        if (matchesSearch && matchesStatus) {
+            row.style.display = "";
+        }
+
+        else {
+            row.style.display = "none";
+        }
+
+    });
+
+}
+
+</script>
+<script>
+function animateCounter(id, target, prefix="", suffix="") {
+    let count = 0;
+
+    let interval = setInterval(() => {
+        count += Math.ceil(target / 50);
+
+        if (count >= target) {
+            count = target;
+            clearInterval(interval);
+        }
+
+        document.getElementById(id).innerText =
+            prefix + count + suffix;
+
+    }, 40);
+}
+
+window.onload = function () {
+    animateCounter("potentialRevenue", {{ potential_revenue }}, "₹ ");
+    animateCounter("closedRevenue", {{ closed_revenue }}, "₹ ");
+    animateCounter("conversionRate", {{ conversion_rate }}, "", "%");
+    animateCounter("hotLeads", {{ hot_leads }});
+};
+</script>
+<footer style="
+text-align:center;
+padding:20px;
+margin-top:40px;
+color:#64748b;
+font-size:14px;
+">
+<footer style="
+text-align:center;
+padding:30px 15px;
+color:#64748b;
+line-height:1.8;
+">
+
+    <strong>© 2026 NexCore Operations</strong><br>
+
+    NexCore LeadFlow CRM • Version 1.0<br>
+
+    Built in India 🇮🇳
+
+</footer>
+</footer>
+<script>
+setTimeout(function(){
+
+    let alerts = document.querySelectorAll('[style*="background:#16a34a"]');
+
+    alerts.forEach(function(alert){
+
+        alert.style.transition = "all .5s ease";
+        alert.style.opacity = "0";
+        alert.style.transform = "translateX(50px)";
+
+        setTimeout(function(){
+            alert.remove();
+        },500);
+
+    });
+
+},3000);
+</script>
+<script>
+function showLoading(){
+    const overlay = document.getElementById("loading-overlay");
+
+    if(overlay){
+        overlay.style.display = "flex";
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const links = document.querySelectorAll(
+        'a[href="/login"], a[href="/add-lead"], a[href^="/edit"], a[href^="/send-email"], a[href="/export-csv"]'
+    );
+
+    links.forEach(function(link){
+
+    link.addEventListener("click", function(){
+
+        showLoading();
+
+    });
+
+});
+window.addEventListener("pageshow", function(){
+
+    const overlay = document.getElementById("loading-overlay");
+
+    if(overlay){
+        overlay.style.display = "none";
+    }
+
+});
+
+    const forms = document.querySelectorAll("form");
+
+    forms.forEach(function(form){
+        form.addEventListener("submit", showLoading);
+    });
+
+});
+</script>
+</body>
+</html>

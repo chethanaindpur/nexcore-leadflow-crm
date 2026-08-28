@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Lead</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            background:#f4f6f9;
+        }
+
+        .container{
+            width:50%;
+            margin:auto;
+            margin-top:50px;
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+        }
+
+        input, select{
+            width:100%;
+            padding:12px;
+            margin-top:10px;
+            margin-bottom:20px;
+        }
+
+        button{
+            background:green;
+            color:white;
+            padding:12px 20px;
+            border:none;
+            border-radius:5px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Edit Lead</h1>
+
+    <form method="POST">
+
+        <label>Customer Name</label>
+        <input type="text"
+               name="customer_name"
+               value="{{ lead[1] }}">
+
+        <label>Phone Number</label>
+        <input type="text"
+               name="phone_number"
+               value="{{ lead[2] }}">
+
+        <label>Business Type</label>
+        <input type="text"
+               name="business_type"
+               value="{{ lead[3] }}">
+
+        <label>Status</label>
+
+        <select name="status">
+
+            <option value="Pending"
+            {% if lead[4] == 'Pending' %} selected {% endif %}>
+            Pending
+            </option>
+
+            <option value="Contacted"
+            {% if lead[4] == 'Contacted' %} selected {% endif %}>
+            Contacted
+            </option>
+
+            <option value="Closed"
+            {% if lead[4] == 'Closed' %} selected {% endif %}>
+            Closed
+            </option>
+
+        </select>
+
+        <button type="submit">Update Lead</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

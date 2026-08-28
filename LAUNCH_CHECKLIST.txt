@@ -1,0 +1,20 @@
+NEXCORE LEADFLOW CRM
+Final Launch Checklist
+
+[x] Login works
+[ ] Logout works
+[x] Dashboard opens
+[x] Add Lead works
+[x] Edit Lead works
+[x] Delete Lead works
+[x] Search works
+[x] Filter works
+[x] AI Reply works
+[x] WhatsApp opens
+[x] Email sends
+[x] Follow-up Date saves
+[x] Pie Chart shows
+[x] Bar Chart shows
+[x] Export CSV downloads
+[x] Mobile View works
+[x] Home Page works

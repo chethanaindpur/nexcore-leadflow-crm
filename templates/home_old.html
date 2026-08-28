@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>NexCore LeadFlow</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(135deg,#020617,#0f172a,#1e3a8a);
+color:white;
+text-align:center;
+}
+
+.hero{
+padding-top:120px;
+padding-bottom:120px;
+}
+
+h1{
+font-size:60px;
+margin-bottom:20px;
+background:linear-gradient(to right,#60a5fa,#a855f7);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+p{
+font-size:22px;
+max-width:700px;
+margin:auto;
+line-height:1.8;
+color:#cbd5e1;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-top:25px;
+    margin-bottom:25px;
+}
+
+.btn{
+background:#2563eb;
+color:white;
+padding:15px 35px;
+font-size:18px;
+text-decoration:none;
+border-radius:10px;
+margin:8px;
+display:inline-block;
+font-weight:bold;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#1d4ed8;
+transform:scale(1.05);
+}
+
+.features{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    padding:20px;
+    margin-top:-10px;
+    flex-wrap:wrap;
+}
+
+.card{
+background:rgba(255,255,255,0.08);
+padding:30px;
+width:250px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+box-shadow:0px 5px 20px rgba(0,0,0,0.3);
+}
+
+.card h3{
+margin-bottom:15px;
+}
+
+footer{
+padding:20px;
+color:#94a3b8;
+}
+.launch-badge{
+    background:#16a34a;
+    color:white;
+    display:inline-block;
+    padding:12px 28px;
+    border-radius:30px;
+    font-size:18px;
+    font-weight:bold;
+    margin:25px auto;
+    box-shadow:0 8px 20px rgba(22,163,74,.35);
+}
+.banner img{
+    width:100%;
+    max-width:1200px;
+    height:auto;
+    display:block;
+    margin:auto;
+    border-radius:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="banner">
+    <img src="{{ url_for('static', filename='launch-banner.png') }}" alt="NexCore LeadFlow CRM Launch Banner">
+</div>
+<div class="launch-badge">
+    🎉 NOW LIVE • VERSION 1.0 • BUILT BY NEXCORE OPERATIONS
+</div>
+<h2 style="color:white; text-align:center; margin-top:25px;">
+    Welcome to NexCore LeadFlow CRM
+</h2>
+
+<p style="color:#d1d5db;
+text-align:center;
+font-size:18px;
+max-width:700px;
+margin:10px auto 30px;">
+Manage leads, automate follow-ups, send emails,
+connect through WhatsApp, and track business growth —
+all from one powerful CRM platform.
+</p>
+<div class="hero">
+
+
+<div class="buttons">
+
+<a href="/login" class="btn">🚀 Launch CRM</a>
+
+<a href="/login" class="btn">🔐 Login</a>
+
+</div>
+
+</div>
+
+<div class="features">
+
+<div class="card">
+
+<h3>🤖 AI Assistant</h3>
+
+<p>Smart AI suggestions for lead follow-up and sales strategy.</p>
+
+</div>
+
+<div class="card">
+
+<h3>📊 Analytics</h3>
+
+<p>Revenue tracking, conversion analytics, and business insights.</p>
+
+</div>
+
+<div class="card">
+
+<h3>📱 WhatsApp Automation</h3>
+
+<p>Instantly connect with customers using automated WhatsApp actions.</p>
+
+</div>
+
+</div>
+
+<footer style="text-align:center;
+padding:30px;
+color:#9ca3af;">
+
+© 2026 NexCore Operations
+
+<br><br>
+
+NexCore LeadFlow CRM • Version 1.0
+
+<br><br>
+
+🇮🇳 Built in India • AI Powered • Secure CRM
+
+</footer>
+
+</body>
+</html>

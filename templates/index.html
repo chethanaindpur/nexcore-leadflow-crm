@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>NexCore LeadFlow</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#0f172a;
+    color:white;
+}
+
+.hero{
+    min-height:70vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:70px;
+    margin-bottom:20px;
+    background:linear-gradient(90deg,#60a5fa,#a855f7);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    font-size:22px;
+    color:#cbd5e1;
+    max-width:650px;
+    line-height:1.7;
+}
+
+.buttons{
+    margin-top:40px;
+}
+
+.btn{
+    background:#2563eb;
+    color:white;
+    padding:15px 30px;
+    border-radius:10px;
+    text-decoration:none;
+    font-size:18px;
+    margin:10px;
+    transition:0.3s;
+    display:inline-block;
+}
+
+.btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-3px);
+    box-shadow:0px 0px 20px rgba(37,99,235,0.6);
+}
+
+.features{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    padding:80px 20px;
+    background:#111827;
+}
+
+.feature-card{
+    background:#1e293b;
+    padding:30px;
+    width:280px;
+    border-radius:15px;
+    box-shadow:0px 5px 20px rgba(0,0,0,0.3);
+    transition:0.3s;
+}
+
+.feature-card:hover{
+    transform:translateY(-10px);
+}
+
+.feature-card h2{
+    color:#60a5fa;
+}
+
+.footer{
+    text-align:center;
+    padding:30px;
+    background:#020617;
+    color:#94a3b8;
+}
+
+@media screen and (max-width:768px){
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+
+    .features{
+        flex-direction:column;
+        align-items:center;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="hero">
+
+    <h1>🚀 NexCore LeadFlow</h1>
+
+    <p>
+
+        AI-powered CRM platform designed to automate lead management,
+        follow-ups, analytics, AI recommendations, and customer engagement.
+
+    </p>
+
+    <div class="buttons">
+
+        <a href="/login" class="btn">
+            Login
+        </a>
+
+        <a href="/" class="btn">
+            Dashboard
+        </a>
+
+    </div>
+
+</div>
+
+<div class="features">
+
+    <div class="feature-card">
+
+        <h2>🤖 AI Assistant</h2>
+
+        <p>
+            Smart AI suggestions for lead follow-up and sales strategy.
+        </p>
+
+    </div>
+
+    <div class="feature-card">
+
+        <h2>📊 Analytics</h2>
+
+        <p>
+            Revenue tracking, conversion analytics, and business insights.
+        </p>
+
+    </div>
+
+    <div class="feature-card">
+
+        <h2>📱 WhatsApp Automation</h2>
+
+        <p>
+            Instantly connect with customers using automated WhatsApp actions.
+        </p>
+
+    </div>
+
+</div>
+
+<div class="footer">
+
+    © 2026 NexCore LeadFlow — AI CRM Platform
+
+</div>
+
+</body>
+
+</html>

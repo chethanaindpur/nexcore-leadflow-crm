@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Analytics</title>
+
+    <style>
+
+        body{
+            font-family:Arial;
+            background:#f1f5f9;
+            padding:40px;
+        }
+
+        .card{
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0px 4px 10px rgba(0,0,0,0.1);
+            width:500px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="card">
+
+        <h1>📈 Analytics Dashboard</h1>
+
+        <p>
+            NexCore Lead Analytics Overview
+        </p>
+
+        <img
+        src="{{ url_for('static', filename='chart.png') }}"
+        width="100%">
+
+    </div>
+
+</body>
+
+</html>

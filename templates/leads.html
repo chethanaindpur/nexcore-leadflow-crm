@@ -1,0 +1,25 @@
+<h1> Leads Page</h1>
+
+<table border="1" cellpadding="10">
+
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Business</th>
+    <th>Status</th>
+</tr>
+
+{% for lead in leads %}
+
+<tr>
+    <td>{{ lead[0] }}</td>
+    <td>{{ lead[1] }}</td>
+    <td>{{ lead[2] }}</td>
+    <td>{{ lead[3] }}</td>
+    <td>{{ lead[4] }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
