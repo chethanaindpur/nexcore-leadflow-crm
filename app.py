@@ -707,5 +707,8 @@ def export_csv():
             "attachment;filename=nexcore_leads.csv"
         }
     )
+@app.route('/googlefef3c30ff82f17c3.html')
+def google_verification():
+    return 'google-site-verification: googlefef3c30ff82f17c3.html'
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
