@@ -73,12 +73,14 @@ def login():
 def home():
 
     return render_template('home.html')
+
+
 # DASHBOARD
 @app.route('/')
 def dashboard():
 
     if 'user' not in session:
-        return redirect('/login')
+        return render_template('home.html')
 
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
