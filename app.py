@@ -8,7 +8,7 @@ import os
 from openai import OpenAI
 import csv
 from flask import make_response
-from flask import Flask, render_template, request, redirect, session, flash
+from flask import Flask, render_template, request, redirect, session, flash, Response
 import urllib.parse
 import sqlite3
 from flask_mail import Mail, Message
@@ -73,6 +73,28 @@ def login():
 def home():
 
     return render_template('home.html')
+@app.route('/robots.txt')
+def robots():
+    content = """User-agent: *
+Allow: /
+
+Sitemap: https://nexcore-leadflow-crm.onrender.com/sitemap.xml
+"""
+    return Response(content, mimetype='text/plain')
+
+@app.route('/sitemap.xml')
+def sitemap():
+    content = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://nexcore-leadflow-crm.onrender.com/</loc>
+    </url>
+    <url>
+        <loc>https://nexcore-leadflow-crm.onrender.com/home</loc>
+    </url>
+</urlset>
+"""
+    return Response(content, mimetype='application/xml')
 
 
 # DASHBOARD
