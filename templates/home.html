@@ -1,7 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>NexCore LeadFlow CRM</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexCore LeadFlow CRM | Lead Management for Growing Businesses</title>
+    <meta name="description" content="Manage business leads, organize follow-ups, and track sales activity with NexCore LeadFlow CRM, an AI-powered CRM for startups and growing businesses.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://nexcore-leadflow-crm.onrender.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="NexCore Operations">
+    <meta property="og:title" content="NexCore LeadFlow CRM | Lead Management for Growing Businesses">
+    <meta property="og:description" content="Manage business leads, organize follow-ups, and track sales activity with NexCore LeadFlow CRM.">
+    <meta property="og:url" content="https://nexcore-leadflow-crm.onrender.com/">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon"
       type="image/svg+xml"
       href="{{ url_for('static', filename='favicon.svg') }}">
@@ -163,24 +174,88 @@ footer{
     text-align:center;
     color:#9ca3af;
 }
+
+.seo-intro{
+    max-width:1050px;
+    margin:35px auto 20px;
+    padding:0 30px;
+    text-align:center;
+}
+
+.seo-intro h2,
+.section-heading{
+    color:#facc15;
+}
+
+.seo-intro p{
+    color:#d1d5db;
+    font-size:17px;
+    line-height:1.8;
+}
+
+.section-heading{
+    grid-column:1 / -1;
+    text-align:center;
+    margin-bottom:0;
+}
+
+@media (max-width: 768px){
+    .navbar{
+        padding:16px 5%;
+        flex-direction:column;
+        gap:14px;
+    }
+
+    .brand{
+        font-size:21px;
+    }
+
+    .nav-links a{
+        margin:0 9px;
+        font-size:14px;
+    }
+
+    .hero{
+        padding:30px 18px 20px;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+        margin:45px auto;
+        padding:0 18px;
+    }
+
+    .seo-intro{
+        padding:0 20px;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<div class="navbar">
+<header class="navbar">
     <div class="brand">🚀 NEXCORE OPERATIONS</div>
 
     <div class="nav-links">
-        <a href="/home">Home</a>
+        <a href="/">Home</a>
         <a href="#features">Features</a>
         <a href="/login">Login</a>
     </div>
-</div>
+</header>
 
+<main>
 <section class="hero">
 
-    <img src="{{ url_for('static', filename='launch-banner.png') }}" alt="NexCore LeadFlow CRM">
+    <img src="{{ url_for('static', filename='launch-banner.png') }}" alt="NexCore LeadFlow CRM lead management platform banner" width="1200" height="450" fetchpriority="high">
 
     <div class="badge">
         🎉 NOW LIVE • VERSION 1.0 • BUILT IN INDIA
@@ -189,9 +264,9 @@ footer{
     <h1>NexCore LeadFlow CRM</h1>
 
     <p>
-        AI-powered lead management platform for startups and growing businesses.
-        Manage leads, automate follow-ups, send emails, connect via WhatsApp,
-        track analytics, and improve conversions from one simple dashboard.
+        NexCore LeadFlow CRM is an AI-powered lead management platform for startups and growing businesses.
+        Organize customer leads, prepare follow-up replies, use email and WhatsApp follow-up tools,
+        and track lead activity and business performance from one dashboard.
     </p>
 
     <div class="buttons">
@@ -201,7 +276,21 @@ footer{
 
 </section>
 
-<section id="features" class="features">
+<section class="seo-intro" aria-labelledby="lead-management-heading">
+    <h2 id="lead-management-heading">Simple lead management and follow-up tools</h2>
+    <p>
+        Keep prospective customers organized in one place. NexCore LeadFlow CRM lets you add,
+        edit, search, filter and export lead information, while its AI Assistant helps generate
+        follow-up replies and customer engagement suggestions.
+    </p>
+    <p>
+        Use the email and WhatsApp follow-up options to continue customer conversations, and review
+        lead activity, conversions and revenue potential through the analytics features.
+    </p>
+</section>
+
+<section id="features" class="features" aria-labelledby="features-heading">
+    <h2 id="features-heading" class="section-heading">NexCore LeadFlow CRM Features</h2>
 
     <div class="card">
         <h3>🤖 AI Assistant</h3>
@@ -234,6 +323,7 @@ footer{
     </div>
 
 </section>
+</main>
 
 <footer>
     <h2 style="color:#facc15;">NexCore Operations</h2>
