@@ -89,9 +89,6 @@ def sitemap():
     <url>
         <loc>https://nexcore-leadflow-crm.onrender.com/</loc>
     </url>
-    <url>
-        <loc>https://nexcore-leadflow-crm.onrender.com/home</loc>
-    </url>
 </urlset>
 """
     return Response(content, mimetype='application/xml')
